@@ -1,4 +1,4 @@
-function FullCRUD() {
+function HOLYCRUD() {
     const [input, setInput] = useState('');
     const [items, setItems] = useState([
         { id: 1, name: 'React' },
