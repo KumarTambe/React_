@@ -1,0 +1,69 @@
+Here you go:
+
+---
+
+useEffect
+
+What it is: Runs code after something changes or on first load.
+
+Three forms:
+1. No dependency array - runs after every render
+2. Empty array [] - runs once on first load only
+3. [value] - runs when that specific value changes
+
+Cleanup: Return a function inside useEffect to clean up when component is removed. Example: clearing a timer with clearInterval.
+
+Rule: Can't use async directly on useEffect. Define async function inside and call it immediately.
+
+---
+
+fetch + async/await
+
+await waits for the promise to resolve before moving to next line.
+res is the raw HTTP response - not usable directly.
+res.json() converts raw response to JavaScript array or object. Also returns a promise so needs await.
+try/catch handles errors - try runs the code, catch runs if anything fails.
+await only works inside an async function.
+
+---
+
+Fetching Data in React
+
+Always need three states: data (empty array), loading (true), error (null).
+useEffect with empty [] fetches data once on first load.
+Define async function inside useEffect, call it immediately after.
+Set loading to false after fetch completes whether success or failure.
+Show loading message while loading is true, error message if error exists, data when ready.
+
+---
+
+React Router
+
+Install with: npm install react-router-dom
+
+Four main imports: BrowserRouter, Routes, Route, Link
+
+BrowserRouter - wraps entire app, enables routing
+Routes - container for all route rules
+Route - maps a URL path to a component. path is the URL, element is the component to render
+Link - what user clicks to navigate. Never reloads the page unlike regular anchor tag.
+
+useNavigate - returns a navigate function. Call navigate('/path') to redirect programmatically from inside a function. Use when you need to redirect after an action like form submit or login.
+
+useParams - reads dynamic values from the URL. If route is /users/:id and URL is /users/3, useParams returns id as 3.
+
+Dynamic routes use colon syntax: /users/:id. The part after colon is the variable name you use in useParams.
+
+---
+
+Key Rules
+
+Hooks only work inside components, never outside.
+Always import at top and export default at bottom of every component file.
+Static data that never changes use plain const, not useState.
+onClick and onChange always need arrow function wrapper when passing arguments.
+Link changes the URL. Route reacts to the URL. Two different jobs.
+useNavigate gives you a function. Call that function with the path to navigate.
+
+---
+
