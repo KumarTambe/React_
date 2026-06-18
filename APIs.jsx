@@ -7,9 +7,7 @@ function UserLists() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const userData = await fetch(
-                    'https://jsonplaceholder.typicode.com/users'
-                );
+                const userData = await fetch('https://jsonplaceholder.typicode.com/users');
                 const Data = await userData.json();
                 setUsers(Data);
                 setLoading(false);
