@@ -1,9 +1,9 @@
 function HOLYCRUD() {
-    const [input, setInput] = useState('');
     const [items, setItems] = useState([
         { id: 1, name: 'React' },
         { id: 2, name: 'Node' },
     ]);
+    const [input, setInput] = useState('');
     const [count, setCount] = useState(0);
     const [selectedID, setSelectedID] = useState(null);
     const [editValue, setEditValue] = useState('');
