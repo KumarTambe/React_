@@ -1,28 +1,30 @@
-import React, { useState } from "react";
 
-function Build1() {
-    const [count, setCount] = useState(0)
-
-    function handleIncrement() {
-        setCount(count + 1);
-    }
-    function handleDecrement() {
-        if (count > 0) {
-            setCount(count - 1)
-        }
-    }
-    function handleReset() {
-        setCount(0)
-    }
+function JobCard({ title, company, salary, isRemote }) {
     return (
-        <>
-            <h1>{count}</h1>
-            <button onClick={handleIncrement}>Increment</button>
-            <button onClick={handleDecrement}>Decrement</button>
-            <button onClick={handleReset}>Reset</button>
-
-        </>
+        <li>
+            {title} at {company} — {salary} — {isRemote ? "Remote" : "On-site"}
+        </li>
     )
 }
 
-export default build1;
+
+function JobList({ jobs }) {
+    return (
+        <ul>
+            {jobs.map(j => (
+                <JobCard
+                    key={j.id}
+                    title={j.title}
+                    company={j.company}
+                    salary={j.salary}
+                    isRemote={j.isRemote}
+                />
+            ))}
+        </ul>
+    )
+}
+
+
+function App() {
+    return <JobList jobs={jobs} />
+}
