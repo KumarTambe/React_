@@ -20,9 +20,9 @@ function Counter() {
     return (
         <>
             <h1>{count}</h1>
-            <button onClick={handleIncrement()}>Add</button>
-            <button onClick={handleDecrement()}>Subtract</button>
-            <button onClick={handleReset()}>Reset</button>
+            <button onClick={handleIncrement}>Add</button>
+            <button onClick={handleDecrement}>Subtract</button>
+            <button onClick={handleReset}>Reset</button>
         </>
     )
 }
