@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 
-function Build2() {
-    const [email, setEmail] = useState('')
-    const [valid, setValid] = useState(false)
+function Counter() {
+    const [count, setCount] = useState(0)
 
-    function handleSubmit() {
-        if (email.includes("@")) {
-            setValid(true)
-        } else {
-            setValid(false)
+    function handleIncrement() {
+        setCount(count + 1);
+    }
+
+    function handleDecrement() {
+        if (count > 0) {
+            setCount(count - 1);
         }
+    }
+
+    function handleReset() {
+        setCount(0)
     }
 
     return (
         <>
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <button onClick={handleSubmit}>Submit</button>
-            {valid ? <h1>Success!</h1> : <h1>Error!</h1>}
+            <h1>{count}</h1>
+            <button onClick={handleIncrement()}>Add</button>
+            <button onClick={handleDecrement()}>Subtract</button>
+            <button onClick={handleReset()}>Reset</button>
         </>
     )
 }
-
-export default Build2;
