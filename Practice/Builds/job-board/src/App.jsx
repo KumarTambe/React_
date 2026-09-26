@@ -1,16 +1,17 @@
-import React from "react";
-import jobs from "./data/job.js"
-import JobCard from "./components/JobCard.jsx";
+
+import JobList from "./components/JobList.jsx";
+
+import { JobDetails } from "./components/JobDetail.jsx";
+import { Link, Routes, Route } from "react-router-dom";
 
 export default function App() {
+
+
   return (
-    <div>
-      {jobs.map((j) =>
-        <JobCard
-          key={j.id}
-          job={j}
-        />
-      )}
-    </div>
+    <Routes>
+      <Route path='/' element={<JobList />} />
+      <Route path='/jobs/:id' element={<JobDetails />} />
+    </Routes>
+
   )
 }
