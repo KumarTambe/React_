@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
-import jobs from '../data/job.js'
+import React, { useEffect, useState } from 'react'
 import JobCard from './JobCard.jsx'
 import { Link } from 'react-router-dom'
 
 export default function JobList() {
+    const [jobs, setJobs] = useState([])
     const [input, setInput] = useState('')
+
+    useEffect(() => {
+        async function fetchData() {
+            const response = await fetch('http://localhost:3000/api/jobs')
+            const data = await response.json()
+            if (data) {
+                setJobs(data.jobs);
+            }
+        }
+        fetchData()
+    }, [])
 
     const filteredJobs = jobs.filter((j) =>
         j.title.toLowerCase().includes(input.toLowerCase()) ||
